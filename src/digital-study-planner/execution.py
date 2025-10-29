@@ -1,6 +1,7 @@
-from functions import (
-
+from base import (
+    DigitalCalendar
 )
-from objects import (
 
-)
+if __name__ == "__main__":
+    name = input("Enter your calendar name: ").strip()
+    calendar = DigitalCalendar(name)
