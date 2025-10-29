@@ -1,0 +1,17 @@
+A calendar "software" (object) that can:
+
+Methods
+- create new calendar
+- add event
+    - with event name, start/end time, (repeat)
+    - event type, color coding (towards the end)
+- view event
+    - depending on the month/week/day/time
+- view any given date
+    - shows events on that day
+- interactive menu (to-do list) to see tasks on a specific day/time
+    - (for the end) with overlay decoration
+- task reminder/notification system for hand-in, deadlines
+    - with a day counter
+
+first version: interactive via the terminal window
