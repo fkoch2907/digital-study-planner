@@ -28,7 +28,7 @@ import pickle
 class DigitalCalendar:
     """Start a new calendar or access an already existing calendar."""
 
-    def __init__(self, filename):
+    def __init__(self, filename: str):
         """Initialize the calendar."""
         self._calendar_filename = f"{filename}.pckl"
         self.calendar = self.check_exists()
