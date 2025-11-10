@@ -53,5 +53,4 @@ class DigitalCalendar:
         })
         with open(self._calendar_filename, "wb") as f:
             pickle.dump(new_calendar, f)
-
         return new_calendar
