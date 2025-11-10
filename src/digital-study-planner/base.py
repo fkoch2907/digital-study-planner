@@ -30,28 +30,28 @@ class DigitalCalendar:
 
     def __init__(self, filename):
         """Initialize the calendar."""
-        self.calendar_name = f"{filename}.pckl"
+        self._calendar_filename = f"{filename}.pckl"
         self.calendar = self.check_exists()
         self.events = {}
 
     def check_exists(self):
-        if os.path.exists(self.calendar_name):
-            print(f"You are checking out your calendar: {self.calendar_name}")
+        if os.path.exists(self._calendar_filename):
+            print(f"You are checking out your calendar: {self._calendar_filename}")
             return self.load_calendar()
 
         else:
-            print(f"You are creating a new calendar: {self.calendar_name}")
+            print(f"You are creating a new calendar: {self._calendar_filename}")
             return self.create_calendar()
 
     def load_calendar(self):
-        with open(self.calendar_name, "rb") as f:\
+        with open(self._calendar_filename, "rb") as f:\
             return pickle.load(f)
 
     def create_calendar(self):
         new_calendar = pd.DataFrame({
-            self.calendar_name: [],
+            self._calendar_filename: [],
         })
-        with open(self.calendar_name, "wb") as f:
+        with open(self._calendar_filename, "wb") as f:
             pickle.dump(new_calendar, f)
 
         return new_calendar
