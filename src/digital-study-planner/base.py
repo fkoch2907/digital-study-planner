@@ -30,7 +30,7 @@ class DigitalCalendar:
 
     def __init__(self, filename: str):
         """Initialize the calendar."""
-        self._calendar_filename = f"{filename}.pckl"
+        self._calendar_filename = f"{filename}.pkl"
         self.calendar = self.check_exists()
         self.events = {}
 
