@@ -38,7 +38,6 @@ class DigitalCalendar:
         if os.path.exists(self._calendar_filename):
             print(f"You are checking out your calendar: {self._calendar_filename}")
             return self.load_calendar()
-
         else:
             print(f"You are creating a new calendar: {self._calendar_filename}")
             return self.create_calendar()
