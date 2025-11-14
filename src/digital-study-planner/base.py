@@ -24,7 +24,6 @@ import os
 
 import pandas as pd
 import pickle
-import plotly.express as px
 
 class DigitalCalendar:
     """Start a new calendar or access an already existing calendar."""
@@ -37,28 +36,20 @@ class DigitalCalendar:
     def check_exists(self):
         if os.path.exists(self._calendar_filename):
             print(f"You are checking out your calendar: {self._calendar_filename}")
-            return self.load_calendar()
+            return self.load_events_file()
         else:
             print(f"You are creating a new calendar: {self._calendar_filename}")
-            return self.create_calendar()
+            return self.make_new_events_file()
 
-    def load_calendar(self):
+    def load_events_file(self):
         with open(self._calendar_filename, "rb") as f:
             return pickle.load(f)
 
-    def create_calendar(self):
-        new_calendar = pd.DataFrame({
-            self._calendar_filename: [],
-        })
-        with open(self._calendar_filename, "wb") as f:
-            pickle.dump(new_calendar, f)
-        return new_calendar
-
-    def show_calendar(self):
-        calendar = self.check_exists()
-        fig = px.timeline(calendar, x_start="Start", x_end="End", y="Event", title="Event Schedule")
-        fig.update_yaxes(autorange="reversed")
-        fig.show()
+    def make_new_events_file(self):
+        """Automatically create a file upon creating a new calendar to store events created for/in this calendar."""
+        new_events = pd.DataFrame({})
+        with open(f"events_{self._calendar_filename}", "wb") as f:
+            pickle.dump(new_events, f)
         return
 
 
