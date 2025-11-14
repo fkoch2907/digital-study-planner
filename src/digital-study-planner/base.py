@@ -48,8 +48,9 @@ class DigitalCalendar:
     def make_new_events_file(self):
         """Automatically create a file upon creating a new calendar to store events created for/in this calendar."""
         new_events = pd.DataFrame({})
+        data = pickle.dumps(new_events)
         with open(f"events_{self._calendar_filename}", "wb") as f:
-            pickle.dump(new_events, f)
+            f.write(data)
         return
 
 
