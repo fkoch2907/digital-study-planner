@@ -24,6 +24,7 @@ import os
 
 import pandas as pd
 import pickle
+import plotly.express as px
 
 class DigitalCalendar:
     """Start a new calendar or access an already existing calendar."""
@@ -52,3 +53,10 @@ class DigitalCalendar:
         with open(self._calendar_filename, "wb") as f:
             pickle.dump(new_calendar, f)
         return new_calendar
+
+    def show_calendar(self):
+        calendar = self.check_exists()
+        fig = px.timeline(calendar, x_start="Start", x_end="End", y="Event", title="Event Schedule")
+        fig.update_yaxes(autorange="reversed")
+        fig.show()
+        return
