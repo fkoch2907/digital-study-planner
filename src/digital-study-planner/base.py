@@ -60,28 +60,3 @@ class DigitalCalendar:
         fig.update_yaxes(autorange="reversed")
         fig.show()
         return
-
-
-class Event:
-    """Base structure for an event that can be input into the calendar."""
-
-    def __init__(
-            self, name: str,
-            start_year: int, start_month: int, start_day: int, start_hour: int, start_minute: int,
-            end_year: int, end_month: int, end_day: int, end_hour: int, end_minute: int,
-            repeat_period_num: int, repeat_period_type: str, event_type: str):
-        """Initialize the event."""
-        self.name = name
-        self.start_year = start_year
-        self.start_month = start_month
-        self.start_day = start_day
-        self.start_hour = start_hour
-        self.start_minute = start_minute
-        self.end_year = end_year
-        self.end_month = end_month
-        self.end_day = end_day
-        self.end_hour = end_hour
-        self.end_minute = end_minute
-        self.repeat_period = repeat_period_num
-        self.repeat_period_type = repeat_period_type
-        self.event_type = event_type
