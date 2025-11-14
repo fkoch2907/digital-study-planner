@@ -42,7 +42,7 @@ class DigitalCalendar:
             return self.create_calendar()
 
     def load_calendar(self):
-        with open(self._calendar_filename, "rb") as f:\
+        with open(self._calendar_filename, "rb") as f:
             return pickle.load(f)
 
     def create_calendar(self):
