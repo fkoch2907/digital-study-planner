@@ -32,7 +32,6 @@ class DigitalCalendar:
         """Initialize the calendar."""
         self._calendar_filename = f"{filename}.pkl"
         self.calendar = self.check_exists()
-        self.events = {}
 
     def check_exists(self):
         if os.path.exists(self._calendar_filename):
